@@ -50,4 +50,20 @@ public final class Collections {
 		}
 		return array;
 	}
+	
+	public static <T> javapp.lang.Iterable<T> reversed(javapp.lang.Iterable<T> iterable) {
+		return new javapp.lang.Iterable<T>() {
+
+			@Override
+			public Iterator<T> nextIterator() {
+				return iterable.prevIterator();
+			}
+
+			@Override
+			public Iterator<T> prevIterator() {
+				return iterable.nextIterator();
+			}
+			
+		};
+	}
 }
